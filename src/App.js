@@ -8,6 +8,7 @@ import About from '../src/pages/About';
 import BrowseProduct from '../src/pages/BrowseProduct';
 import MyBid from '../src/pages/MyBid';
 import Contact from '../src/pages/Contact';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -50,7 +51,12 @@ const router = createBrowserRouter([
   },
 ]);
 const MainApp = () => {
- 
+
+  const Isloggin = localStorage.getItem('token');
+   console.log(Isloggin)
+
+   
+
   return (
     <RouterProvider router={router} />
   )

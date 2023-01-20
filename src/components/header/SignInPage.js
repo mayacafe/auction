@@ -1,5 +1,7 @@
-import React,{useState, useContext} from "react";
+import React from "react";
 import axios from "axios";
+import { trackPromise, usePromiseTracker } from "react-promise-tracker";
+import { Circles } from "react-loader-spinner";
 import HeaderFrist from "./HeaderFrist";
 import HeaderSecound from "./HeaderSecound";
 import { RiFacebookCircleFill } from "react-icons/ri";
@@ -11,6 +13,8 @@ import { NavLink } from "react-router-dom";
 import Footer from "./Footer";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const schema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is Required"),
@@ -19,8 +23,19 @@ const schema = Yup.object().shape({
 
 export default function SignInPage() {
 
-  // const authenticate = useContext(AuthContext);
-  // const [serverState, setServerState] = useState();
+   
+
+
+  // const showToastMessage = (data) => {
+  //   toast.success(data, {
+  //     position: toast.POSITION.TOP_CENTER,
+  //   });
+  // };
+  
+  const { promiseInProgress } = usePromiseTracker();
+  console.log(promiseInProgress)
+
+
   const handleOnSubmit = (values) => {
     axios({
       method: "POST",
@@ -32,19 +47,14 @@ export default function SignInPage() {
      
     })
     .then(response => {
-      console.log(response.data)
-      // actions.setSubmitting(false);
-      // actions.resetForm();
-      // handleServerResponse(true, "Logged In!");
+      console.log(response.data.token)
+      //showToastMessage(response.data);
+      localStorage.setItem("token", JSON.stringify(response.data.token));
     })
+
     .catch(error => {
-      // actions.setSubmitting(false);
-      // handleServerResponse(false, error.response.data.error);
       console.log(error.response.data)
     });
-    // authenticate.login();
-    // Router.push("/")
-    
   };
 
 
@@ -107,7 +117,19 @@ export default function SignInPage() {
               <div className="or">
                 <span>Or</span>
               </div>
-
+              { (promiseInProgress === true) ?
+              <div className="loader">
+               <Circles
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+             </div>
+              :
               <Formik
                 initialValues={{
                   email: "",
@@ -167,10 +189,12 @@ export default function SignInPage() {
                       <button type="submit" className="custom-button">
                         LOG IN
                       </button>
+                      <ToastContainer />
                     </div>
                   </Form>
                 )}
               </Formik>
+             }     
             </div>
             <div className="right-side cl-white">
               <div className="section-header mb-0">

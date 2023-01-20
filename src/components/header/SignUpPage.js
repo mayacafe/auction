@@ -32,8 +32,8 @@ const schema = Yup.object().shape({
 
 export default function SignUpPage() {
  
-  const showToastMessage = () => {
-    toast.success("successfully form submit !", {
+  const showToastMessage = (data) => {
+    toast.success(data, {
       position: toast.POSITION.TOP_CENTER,
     });
   };
@@ -55,7 +55,7 @@ export default function SignUpPage() {
       })
         .then((response) => {
           console.log(response.data);
-          showToastMessage();
+          showToastMessage(response.data.message);
         })
         .catch((error) => {
           console.log(error.response.data);
