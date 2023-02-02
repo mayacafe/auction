@@ -12,7 +12,7 @@ import overview5 from '../assets/images/overview/05.png'
 import overview6 from '../assets/images/overview/06.png'
 import ClientSection from '../components/header/ClientSection';
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-
+import Footer from "../components/header/Footer";
 //import overview from '../assets/images/overview/overview-bg.png'
 export default function About() {
   return (
@@ -197,7 +197,7 @@ export default function About() {
     </section>
     <ClientSection/>
     {/* <!--============= Overview Section Ends Here =============--> */}
-
+<Footer/>
       </div>
   )
 }

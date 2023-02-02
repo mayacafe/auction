@@ -1,6 +1,8 @@
 import React from 'react'
+
 import CallInSection from '../components/header/CallInSection'
 import ClientSection from '../components/header/ClientSection'
+import CurrentAuction from '../components/header/CurrentAuction'
 import Footer from '../components/header/Footer'
 import HeaderFrist from '../components/header/HeaderFrist'
 import HeaderSecound from '../components/header/HeaderSecound'
@@ -15,6 +17,7 @@ export default function Home() {
       <HeaderSecound/>
       <MainSilderSection/>
       <SectionBrowse/>
+      <CurrentAuction/>
       <Upcoming/>
       <CallInSection/>
       <NewAuction/>

@@ -32,6 +32,7 @@ export default function CardImages() {
               </div>
           </div>
       </div>
+
       <div class="col-sm-10 col-md-6 col-lg-4">
           <div class="auction-item-2">
               <div class="auction-thumb">
@@ -57,6 +58,8 @@ export default function CardImages() {
               </div>
           </div>
       </div>
+
+      
       <div class="col-sm-10 col-md-6 col-lg-4">
           <div class="auction-item-2">
               <div class="auction-thumb">

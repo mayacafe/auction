@@ -13,6 +13,20 @@
     color: #52606d;
     visibility: hidden;
 }
+/* .timer { */
+    /* background-color: rgba(255, 255, 255, 0.1) !important; */
+    /* display: inline-block !important; */
+    /* margin-top: 25px !important; */
+    /* padding: 10px !important; */
+    /* text-align: center !important; */
+    /* width: 100px !important; */
+  /* } */
+
+ol, ul {
+    padding-left: 0px !important;
+}
+
+
 .owl-theme .owl-nav [class*='owl-'] {
     color: #FFF;
     font-size: 14px;
@@ -1710,6 +1724,7 @@ footer.bg_img.padding-top.oh {
     padding: 5px 0 4px;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
+    font-size: 16px;
 }
 
 @media (max-width: 575px) {
@@ -1719,7 +1734,7 @@ footer.bg_img.padding-top.oh {
 }
 
 .footer-widget .links-list li a i {
-    margin-right: 35px;
+    margin-right: 35px !important;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -1770,6 +1785,7 @@ footer.bg_img.padding-top.oh {
 .footer-bottom-wrapper .copyright p {
     margin: 0 !important;
     color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
 }
 .footer-bottom {
     background: #0b131a;
@@ -8337,6 +8353,7 @@ section.call-in-section {
     /* background: -webkit-linear-gradient(92deg, #ff8359 0%, #ffdf40 100%); */
 
 }
+
 
 .dash-bid-item .button-area .list li {
     padding: 0 20px;

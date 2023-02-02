@@ -37,6 +37,7 @@ export default function SignInPage() {
 
 
   const handleOnSubmit = (values) => {
+    trackPromise(
     axios({
       method: "POST",
       url: "http://192.168.29.28:5000/login",
@@ -54,7 +55,8 @@ export default function SignInPage() {
 
     .catch(error => {
       console.log(error.response.data)
-    });
+    })
+    )
   };
 
 

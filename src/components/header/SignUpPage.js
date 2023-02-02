@@ -10,7 +10,7 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-//import Footer from "./Footer";
+import Footer from "./Footer";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
@@ -45,7 +45,7 @@ export default function SignUpPage() {
     trackPromise(
       axios({
         method: "POST",
-        url: "http://192.168.29.28:5000/register",
+        url: " http://192.168.29.28:5000/register",
         data: {
           fullname: values.fullname,
           mobileno: values.phoneno,
@@ -257,7 +257,7 @@ export default function SignUpPage() {
         </div>
       </section>
       {/* <!--============= Account Section Ends Here =============--> */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -8,6 +8,8 @@ import art2 from "../../assets/images/auction/art/auction-2.jpg";
 import art3 from "../../assets/images/auction/art/auction-3.jpg";
 import art4 from "../../assets/images/auction/art/auction-4.jpg";
 import OwlCarousel from "react-owl-carousel";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 export default function NewAuction() {
@@ -22,10 +24,10 @@ export default function NewAuction() {
               </div>
               <div className="slider-nav">
                 <a href="#0" className="electro-prev">
-                  <i className="flaticon-left-arrow"></i>
+                  <i className="flaticon-left-arrow"><HiOutlineArrowNarrowLeft/></i>
                 </a>
                 <a href="#0" className="electro-next active">
-                  <i className="flaticon-right-arrow"></i>
+                  <i className="flaticon-right-arrow"><HiOutlineArrowNarrowRight/></i>
                 </a>
               </div>
             </div>
@@ -333,7 +335,7 @@ export default function NewAuction() {
               </div>
               <div className="slider-nav">
                 <a href="#0" className="art-next active">
-                  <i className="flaticon-right-arrow"></i>
+                  <i className="flaticon-right-arrow"><HiOutlineArrowNarrowRight/></i>
                 </a>
               </div>
             </div>
