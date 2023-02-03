@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import photo1 from "../../assets/images/banner/banner-bg-1.png";
-import photo2 from "../../assets/images/banner/banner-bg-2.png";
-import photo3 from "../../assets/images/banner/banner-bg-3.png";
+// import photo2 from "../../assets/images/banner/banner-bg-2.png";
+// import photo3 from "../../assets/images/banner/banner-bg-3.png";
 import OwlCarousel from "react-owl-carousel";
 import axios from "axios";
 import "owl.carousel/dist/assets/owl.carousel.css";

@@ -1,20 +1,21 @@
 import React, {useState, useEffect} from "react";
-import photo1 from "../../assets/images/auction/real-estate.png";
-import photo2 from "../../assets/images/auction/car.png";
-import photo3 from "../../assets/images/auction/double-bed.png";
-import photo4 from "../../assets/images/auction/responsive.png";
-import photo5 from "../../assets/images/auction/washer.png";
-import photo6 from "../../assets/images/auction/ceiling-lamp.png";
+ import photo1 from "../../assets/images/auction/real-estate.png";
+// import photo2 from "../../assets/images/auction/car.png";
+// import photo3 from "../../assets/images/auction/double-bed.png";
+// import photo4 from "../../assets/images/auction/responsive.png";
+// import photo5 from "../../assets/images/auction/washer.png";
+// import photo6 from "../../assets/images/auction/ceiling-lamp.png";
 import axios from "axios";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import { FiClock } from "react-icons/fi";
+// import { FiClock } from "react-icons/fi";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";       
 
 
 export default function SectionBrowse() {
+
   const [catergoryData, setcatergoryData] = useState([])
   
  useEffect(()=>{

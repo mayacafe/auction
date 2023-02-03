@@ -8,17 +8,18 @@ import axios from "axios";
 //import CardImages from './CardImages';
 
 export default function Upcoming() {
-  // const [upcomingData, setupcomingData] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .post(`http://192.168.29.28:5000/upcomingauctionlist`)
-  //     .then((response) => {
-  //       setupcomingData(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
+
+  const [upcomingData, setupcomingData] = useState([]);
+  useEffect(() => {
+    axios
+      .post(`http://192.168.29.28:5000/upcomingauctionlist`)
+      .then((response) => {
+        setupcomingData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <section class="upcoming-auction-section padding-bottom pt-md-half  pos-rel">
@@ -36,9 +37,10 @@ export default function Upcoming() {
         </div>
 
         <div class="row justify-content-center mb-30-none">
-          {/* {upcomingData.map((element) => {
+          {upcomingData.map((data) => {
+            //console.log(element)
             return (
-              <> */}
+              <>
                 <div class="col-sm-10 col-md-6 col-lg-4">
                   <div class="auction-item-2">
                     <div class="auction-thumb">
@@ -52,13 +54,17 @@ export default function Upcoming() {
                     <div class="auction-content">
                       <div class="countdown-area-new">
                         <FiClock />
-                        <div id="bid_counter29"></div>
-                        <span class="amount">$876.00</span>
+                        <div id="bid_counter29">{data.bid_start_time}</div>
+                        <span class="amount">${data.startingBid}</span>
                       </div>
                       <h6 class="title">
-                        <a href="product-details.html">2018 Hyundai Sonata</a>
+                        <a href="product-details.html">
+                          {data.name}
+                        </a>
                       </h6>
-                      <p>Lorem ipsum dolor iset amar set</p>
+                      <p>
+                        {data.discription}
+                        </p>
                       <div class="text-center">
                         <a href="#0" class="custom-button">
                           Submit a bid
@@ -67,9 +73,9 @@ export default function Upcoming() {
                     </div>
                   </div>
                 </div>
-              {/* </>
+              </>
             );
-          })} */}
+          })}
         </div>
 
         {/* <CardImages/> */}

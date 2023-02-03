@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import photo1 from "../../assets/images/auction/electronics/auction-1.jpg";
-import photo2 from "../../assets/images/auction/electronics/auction-2.jpg";
-import photo3 from "../../assets/images/auction/electronics/auction-3.jpg";
-import photo4 from "../../assets/images/auction/electronics/auction-4.jpg";
+// import photo2 from "../../assets/images/auction/electronics/auction-2.jpg";
+// import photo3 from "../../assets/images/auction/electronics/auction-3.jpg";
+// import photo4 from "../../assets/images/auction/electronics/auction-4.jpg";
 import art1 from "../../assets/images/auction/art/auction-1.jpg";
 import art2 from "../../assets/images/auction/art/auction-2.jpg";
 import art3 from "../../assets/images/auction/art/auction-3.jpg";
@@ -12,7 +12,21 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import axios from "axios";
+
 export default function NewAuction() {
+  const [newAuctiondata, setnewAuctiondata] = useState([]);
+  useEffect(() => {
+    axios
+      .post(`http://192.168.29.28:5000/mybid`)
+      .then((response) => {
+        setnewAuctiondata(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <section className="art-and-electronics-auction-section padding-top">
       <div className="container">
@@ -24,53 +38,64 @@ export default function NewAuction() {
               </div>
               <div className="slider-nav">
                 <a href="#0" className="electro-prev">
-                  <i className="flaticon-left-arrow"><HiOutlineArrowNarrowLeft/></i>
+                  <i className="flaticon-left-arrow">
+                    <HiOutlineArrowNarrowLeft />
+                  </i>
                 </a>
                 <a href="#0" className="electro-next active">
-                  <i className="flaticon-right-arrow"><HiOutlineArrowNarrowRight/></i>
+                  <i className="flaticon-right-arrow">
+                    <HiOutlineArrowNarrowRight />
+                  </i>
                 </a>
               </div>
             </div>
             {/* <div className="auction-slider-1 owl-carousel owl-theme  mb-30-none"> */}
-            <OwlCarousel items={1} margin={8} autoplay={true}>
-              <div className="slide-item">
-                <div className="auction-item-1">
-                  <div className="auction-thumb">
-                    <a href="product-details.html">
-                      <img
-                        src={photo1}
-                        alt="electronics"
-                      />
-                    </a>
+            {newAuctiondata.map((data) => {
+              return (
+                <>
+                  <OwlCarousel items={1} margin={8} autoplay={true} >
+                    <div className="slide-item">
+                      <div className="auction-item-1">
+                        <div className="auction-thumb">
+                          <a href="product-details.html">
+                            <img src={photo1} alt="electronics" />
+                          </a>
 
-                    <a href="#0" className="bid">
-                      <i className="flaticon-auction"></i>
-                    </a>
-                  </div>
-                  <div className="auction-content">
-                    <h6 className="title">
-                      <a href="product-details.html">
-                        Magnifying Glasses, Jewelry Loupe odit qui corporis
-                      </a>
-                    </h6>
-                    <div className="bid-amount">
-                      <div className="icon">
-                        <i className="flaticon-auction"></i>
+                          <a href="#0" className="bid">
+                            <i className="flaticon-auction"></i>
+                          </a>
+                        </div>
+                        <div className="auction-content">
+                          <h6 className="title">
+                            <a href="product-details.html">
+                              {/* Magnifying Glasses, Jewelry Loupe odit qui
+                              corporis */}
+                              {data.name}
+                            </a>
+                          </h6>
+                          <div className="bid-amount">
+                            <div className="icon">
+                              <i className="flaticon-auction"></i>
+                            </div>
+                            <div className="amount-content">
+                              <div className="current">
+                              Current Bid
+                                {data.current_bid} 
+                                {/* Current Bid */}
+                                </div>
+                              <div className="amount">${data.last_bid}</div>
+                            </div>
+                          </div>
+                          <div className="countdown-area">
+                            <div className="countdown">
+                              <div id="bid_counter1"></div>
+                            </div>
+                            <span className="total-bids">30 Bids</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="amount-content">
-                        <div className="current">Current Bid</div>
-                        <div className="amount">$876.00</div>
-                      </div>
-                    </div>
-                    <div className="countdown-area">
-                      <div className="countdown">
-                        <div id="bid_counter1"></div>
-                      </div>
-                      <span className="total-bids">30 Bids</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="auction-item-1">
+
+                      {/* <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
                       <img
@@ -177,46 +202,46 @@ export default function NewAuction() {
                       <span className="total-bids">30 Bids</span>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="slide-item">
-                <div className="auction-item-1">
-                  <div className="auction-thumb">
-                    <a href="product-details.html">
-                      <img
-                        src={photo1}
-                        alt="electronics"
-                      />
-                    </a>
+                </div> */}
+                    </div>
 
-                    <a href="#0" className="bid">
-                      <i className="flaticon-auction"></i>
-                    </a>
-                  </div>
-                  <div className="auction-content">
-                    <h6 className="title">
-                      <a href="product-details.html">
-                        Magnifying Glasses, Jewelry Loupe odit qui corporis
-                      </a>
-                    </h6>
-                    <div className="bid-amount">
-                      <div className="icon">
-                        <i className="flaticon-auction"></i>
+                    <div className="slide-item">
+                      <div className="auction-item-1">
+                        <div className="auction-thumb">
+                          <a href="product-details.html">
+                            <img src={photo1} alt="electronics" />
+                          </a>
+
+                          <a href="#0" className="bid">
+                            <i className="flaticon-auction"></i>
+                          </a>
+                        </div>
+                        <div className="auction-content">
+                          <h6 className="title">
+                            <a href="product-details.html">
+                              {/* Magnifying Glasses, Jewelry Loupe odit qui
+                              corporis */}
+                              {data.name}
+                            </a>
+                          </h6>
+                          <div className="bid-amount">
+                            <div className="icon">
+                              <i className="flaticon-auction"></i>
+                            </div>
+                            <div className="amount-content">
+                              <div className="current"> {data.current_bid}</div>
+                              <div className="amount">${data.last_bid}</div>
+                            </div>
+                          </div>
+                          <div className="countdown-area">
+                            <div className="countdown">
+                              <div id="bid_counter5"></div>
+                            </div>
+                            <span className="total-bids">30 Bids</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="amount-content">
-                        <div className="current">Current Bid</div>
-                        <div className="amount">$876.00</div>
-                      </div>
-                    </div>
-                    <div className="countdown-area">
-                      <div className="countdown">
-                        <div id="bid_counter5"></div>
-                      </div>
-                      <span className="total-bids">30 Bids</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="auction-item-1">
+                      {/* <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
                       <img
@@ -323,9 +348,13 @@ export default function NewAuction() {
                       <span className="total-bids">30 Bids</span>
                     </div>
                   </div>
-                </div>
-              </div>
-              </OwlCarousel>
+                </div> */}
+                    </div>
+                  </OwlCarousel>
+                </>
+              );
+            })}
+
             {/* </div> */}
           </div>
           <div className="col-xl-6 col-lg-8 mb-50">
@@ -335,7 +364,9 @@ export default function NewAuction() {
               </div>
               <div className="slider-nav">
                 <a href="#0" className="art-next active">
-                  <i className="flaticon-right-arrow"><HiOutlineArrowNarrowRight/></i>
+                  <i className="flaticon-right-arrow">
+                    <HiOutlineArrowNarrowRight />
+                  </i>
                 </a>
               </div>
             </div>
@@ -345,10 +376,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art1 }
-                        alt="art"
-                      />
+                      <img src={art1} alt="art" />
                     </a>
 
                     <a href="#0" className="bid">
@@ -381,10 +409,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art2}
-                        alt="art"
-                      />
+                      <img src={art2} alt="art" />
                     </a>
 
                     <a href="#0" className="bid">
@@ -417,10 +442,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art3}
-                        alt="art"
-                      />
+                      <img src={art3} alt="art" />
                     </a>
 
                     <a href="#0" className="bid">
@@ -453,10 +475,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art4}
-                        alt="art"
-                      />
+                      <img src={art4} alt="art" />
                     </a>
 
                     <a href="#0" className="bid">
@@ -491,10 +510,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art1}
-                        alt="art"
-                      />
+                      <img src={art1} alt="art" />
                     </a>
 
                     <a href="#0" className="bid">
@@ -527,10 +543,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art2}
-                        alt="art"
-                      />
+                      <img src={art2} alt="art" />
                     </a>
 
                     <a href="#0" className="bid">
@@ -563,10 +576,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art3}
-                        alt="art"
-                      />
+                      <img src={art3} alt="art" />
                     </a>
 
                     <a href="#0" className="bid">
@@ -599,10 +609,7 @@ export default function NewAuction() {
                 <div className="auction-item-1">
                   <div className="auction-thumb">
                     <a href="product-details.html">
-                      <img
-                        src={art4}
-                        alt="art"
-                      />
+                      <img src={art4} alt="art" />
                     </a>
                     {/* <!--  <a href="#0" className="rating"><i className="far fa-star"></i></a> --> */}
                     <a href="#0" className="bid">
@@ -633,7 +640,7 @@ export default function NewAuction() {
                   </div>
                 </div>
               </div>
-              </OwlCarousel>
+            </OwlCarousel>
             {/* </div> */}
           </div>
         </div>
