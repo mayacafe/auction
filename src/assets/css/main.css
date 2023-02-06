@@ -26,6 +26,9 @@ ol, ul {
     padding-left: 0px !important;
 }
 
+.icon-div{
+    margin-right: 35px;
+}
 
 .owl-theme .owl-nav [class*='owl-'] {
     color: #FFF;
@@ -1724,7 +1727,7 @@ footer.bg_img.padding-top.oh {
     padding: 5px 0 4px;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
-    font-size: 16px;
+   
 }
 
 @media (max-width: 575px) {
@@ -1785,7 +1788,6 @@ footer.bg_img.padding-top.oh {
 .footer-bottom-wrapper .copyright p {
     margin: 0 !important;
     color: rgba(255, 255, 255, 0.9);
-    font-size: 16px;
 }
 .footer-bottom {
     background: #0b131a;

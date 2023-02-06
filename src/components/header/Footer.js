@@ -107,16 +107,16 @@ export default function Footer() {
                           <h5 className="title">Follow Us</h5>
                           <ul className="links-list">
                               <li>
-                                  <a href="#0"><BsFillTelephoneFill/>(646) 663-4575</a>
+                                  <a href="#0"><span className='icon-div'><BsFillTelephoneFill/></span>(646) 663-4575</a>
                               </li>
                               <li>
-                                  <a href="#0"><FaBlenderPhone/>(646) 968-0608</a>
+                                  <a href="#0"><span className='icon-div'><FaBlenderPhone/></span>(646) 968-0608</a>
                               </li>
                               <li>
-                                  <a href="#0"><FaEnvelopeOpenText/><span className="__cf_email__" data-cfemail="630b060f1323060d040c170b060e064d000c0e">[email&#160;protected]</span></a>
+                                  <a href="#0"><span className='icon-div' ><FaEnvelopeOpenText/></span> <span className="__cf_email__" data-cfemail="630b060f1323060d040c170b060e064d000c0e">[email&#160;protected]</span></a>
                               </li>
                               <li>
-                                  <a href="#0"><FaLocationArrow/>1201 Broadway Suite</a>
+                                  <a href="#0"><span className='icon-div' ><FaLocationArrow/></span>1201 Broadway Suite</a>
                               </li>
                           </ul>
                           <ul className="social-icons">

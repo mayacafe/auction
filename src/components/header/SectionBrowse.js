@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
- import photo1 from "../../assets/images/auction/real-estate.png";
+
+import photo1 from "../../assets/images/auction/real-estate.png";
 // import photo2 from "../../assets/images/auction/car.png";
 // import photo3 from "../../assets/images/auction/double-bed.png";
 // import photo4 from "../../assets/images/auction/responsive.png";

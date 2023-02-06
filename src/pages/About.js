@@ -13,7 +13,7 @@ import overview6 from "../assets/images/overview/06.png";
 import ClientSection from "../components/header/ClientSection";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import Footer from "../components/header/Footer";
-//import overview from '../assets/images/overview/overview-bg.png'
+import overview from '../assets/images/overview/overview-bg.png'
 export default function About() {
   return (
     <div>
@@ -208,8 +208,10 @@ export default function About() {
             <div className="col-lg-6 pl-30 pr-0">
               <div
                 className="w-100 h-100 bg_img"
-                data-background="assets/images/overview/overview-bg.png"
-              ></div>
+                // data-background="../assets/images/overview/overview-bg.png"
+              >
+                <img src={overview} alt="error"  style={{"width" : "100%"}} />
+              </div>
             </div>
           </div>
         </div>

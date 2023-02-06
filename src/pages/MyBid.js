@@ -10,6 +10,8 @@ import { TiPencil } from "react-icons/ti";
 import { RiDashboardLine } from "react-icons/ri";
 import { BsStar } from "react-icons/bs";
 import { FaRegClock } from "react-icons/fa";
+import Footer from "../components/header/Footer";
+
 export default function MyBid() {
   return (
     <div>
@@ -354,6 +356,7 @@ export default function MyBid() {
           </div>
         </div>
       </section>
+      <Footer />
 
       {/* <!--============= Dashboard Section Ends Here =============--> */}
     </div>

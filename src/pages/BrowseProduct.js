@@ -4,6 +4,7 @@ import HeaderFrist from "../components/header/HeaderFrist";
 import HeaderSecound from "../components/header/HeaderSecound";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import Footer from "../components/header/Footer";
 import { FiSearch } from "react-icons/fi";
 
 export default function BrowseProduct() {
@@ -15,12 +16,17 @@ export default function BrowseProduct() {
       <div className="hero-section style-2">
         <div className="container">
           <h3>Products</h3>
-          <ul className="breadcrumb">
+          <ul class="breadcrumb">
             <li>
-              <a href="index.html">Home</a>
+              <span>Home</span>&nbsp;
+              <HiOutlineArrowNarrowRight />
+              &nbsp;
             </li>
             <li>
-              <a href="#0">Pages</a>
+              <span>Pages</span>
+              &nbsp;
+              <HiOutlineArrowNarrowRight />
+              &nbsp;
             </li>
             <li>
               <span>Vehicles</span>
@@ -96,6 +102,7 @@ export default function BrowseProduct() {
           </ul>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
