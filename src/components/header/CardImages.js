@@ -15,8 +15,7 @@ export default function CardImages() {
               </div>
               <div class="auction-content">
                   <div class="countdown-area-new">
-                      {/* <i class="feather-clock"></i> */}
-                      <FiClock/>
+                      <i class="feather-clock"><FiClock/></i>
                       <div id="bid_counter29"></div>
                       <span class="amount">$876.00</span>
                   </div>
@@ -42,8 +41,7 @@ export default function CardImages() {
               </div>
               <div class="auction-content">
                   <div class="countdown-area-new">
-                      {/* <i class="feather-clock"></i> */}
-                      <FiClock/>
+                      <i class="feather-clock"><FiClock/></i>
                       <div id="bid_counter30"></div>
                       <span class="amount">$76.00</span>
                   </div>
@@ -69,8 +67,8 @@ export default function CardImages() {
               </div>
               <div class="auction-content">
               <div class="countdown-area-new">
-                      {/* <i class="feather-clock"></i> */}
-                      <FiClock/>
+                      <i class="feather-clock">  <FiClock/></i>
+                    
                       <div id="bid_counter31"></div>
                       <span class="amount">$876.00</span>
                   </div>

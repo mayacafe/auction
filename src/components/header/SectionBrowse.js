@@ -50,8 +50,9 @@ export default function SectionBrowse() {
             </div>
           </div>
           <div className="m--15">
-            <OwlCarousel items={6} className=" browse-slider owl-carousel owl-theme" loop nav margin={0}>
+            <OwlCarousel items={6} className=" browse-slider owl-carousel owl-theme " loop nav margin={0}>
             {catergoryData.map((element) => {
+              console.log(element.name)
              return(
               <>
              

@@ -18,7 +18,7 @@ export default function Home() {
       <MainSilderSection/>
       <SectionBrowse/>
       <CurrentAuction/>
-      {/* <Upcoming/> */}
+      <Upcoming/>
       <CallInSection/>
       <NewAuction/>
       <ClientSection/>

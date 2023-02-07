@@ -7,8 +7,11 @@ import axios from "axios";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
+
 export default function MainSilderSection() {
    
+  
+
   //const url = 'http://192.168.29.28:5000/listslider'
   // const [dataApiCall, setdataApiCall] = useState([])
   // const callApi = () =>{
@@ -22,39 +25,41 @@ export default function MainSilderSection() {
     
   // }
   
-  // useEffect(()=>{
-  //   axios.post(`http://192.168.29.28:5000/listslider`)
-  //   .then((response) => {
-  //     setdataApiCall(response.data);
-  //   })
-  //   .catch(error =>{
-  //         console.log(error)
-  //       })
-  // },[])
+  const [dataApiCall,setdataApiCall ] = useState([])
+  useEffect(()=>{
+    axios.post(`http://192.168.29.28:5000/listslider`)
+    .then((response) => {
+      setdataApiCall(response.data);
+    })
+    .catch(error =>{
+          console.log(error)
+        })
+  },[])
   
 
   return (
     <section className=" main-slider-section">
-      <OwlCarousel items={1} margin={0} autoplay={true}>
-      {/* {dataApiCall.map( (element)=>{ */}
-      {/* return(
-        <> */}
-        <div className="slide-item">
+      <OwlCarousel items={1} margin={0} autoplay={true} className="main-slider owl-theme owl-carousel">
+      {dataApiCall.map( (element)=>{
+       console.log(element.title)
+      return(
+        <>
+        <div className="slide-item" >
           <img src={photo1} alt="client" />
-          <div className="slide-content">
+          <div className="slide-content" key={element.id}>
             <h5 className="cate">Next Generation Auction</h5>
             <h1 className="title">
               {/* Find your dream <br /> car */}
-              {/* {element.title} */}
+              {element.title}
             </h1>
             <p>
-              {/* Online Auction is where everyone goes to shop, sell,and <br />{" "}
-              give, while discovering variety and affordability. */}
-              {/* {element.discription} */}
+              Online Auction is where everyone goes to shop, sell,and <br />{" "}
+              give, while discovering variety and affordability.
+              {element.discription}
             </p>
             <a href="#0" className="custom-button yellow btn-large">
               {/* Get Started */}
-              {/* {element.linked} */}
+              {element.linked}
             </a>
           </div>
         </div>
@@ -90,9 +95,9 @@ export default function MainSilderSection() {
             </a>
           </div>
         </div> */}
-        {/* </>
+        </>
       )
-        })} */}
+        })}
       </OwlCarousel>
     </section>
   );

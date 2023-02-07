@@ -80,17 +80,17 @@ export default function NewAuction() {
                             <div className="amount-content">
                               <div className="current">
                               Current Bid
-                                {data.current_bid} 
+                                {/* {data.current_bid}  */}
                                 {/* Current Bid */}
                                 </div>
-                              <div className="amount">${data.last_bid}</div>
+                              <div className="amount">${data.current_bid}</div>
                             </div>
                           </div>
                           <div className="countdown-area">
                             <div className="countdown">
                               <div id="bid_counter1"></div>
                             </div>
-                            <span className="total-bids">30 Bids</span>
+                            <span className="total-bids">{data.count}</span>
                           </div>
                         </div>
                       </div>
@@ -229,15 +229,15 @@ export default function NewAuction() {
                               <i className="flaticon-auction"></i>
                             </div>
                             <div className="amount-content">
-                              <div className="current"> {data.current_bid}</div>
-                              <div className="amount">${data.last_bid}</div>
+                              <div className="current"> current Bid</div>
+                              <div className="amount">${data.current_bid}</div>
                             </div>
                           </div>
                           <div className="countdown-area">
                             <div className="countdown">
                               <div id="bid_counter5"></div>
                             </div>
-                            <span className="total-bids">30 Bids</span>
+                            <span className="total-bids">{data.count}</span>
                           </div>
                         </div>
                       </div>

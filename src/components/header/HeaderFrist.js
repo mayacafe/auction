@@ -1,5 +1,5 @@
 import React from "react";
-import { FiPhone } from "react-icons/fi";
+import { FaPhoneAlt } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 export default function () {
@@ -12,20 +12,19 @@ export default function () {
               <ul className="customer-support">
                 <li>
                   <a href="#0" className="mr-3">
-                    {/* <i className="fas fa-phone-alt"></i> */}
-                    <FiPhone/>
+                    <i className="fas fa-phone-alt"><FaPhoneAlt/></i>  
                     <span className="ml-2 d-none d-sm-inline-block">
                       sale@modeltheme.com
                     </span>
                   </a>
                 </li>
               </ul>
+              
               <ul className="cart-button-area">
                 <li>
                   <a href="sign-in.html" className="user-button">
-                    {/* <i className="feather-user"></i> */}
                     <NavLink to="/SignInPage">
-                    <FiUser/>
+                    <i className="feather-user"><FiUser/></i>
                     </NavLink>
                   </a>
                 </li>

@@ -19,35 +19,36 @@ export default function HeaderSecound() {
             </li>
             <NavLink to="/About">
             <li>
-              <a href="/">About</a>
+              <a href="/About">About</a>
             </li>
             </NavLink>
 
             <NavLink to="/BrowseProduct">
             <li>
-              <a href="/">Browse Product</a>
+              <a href="/BrowseProduct">Browse Product</a>
             </li>
             </NavLink>
 
             <li>
-              <a href="/">Auction Details</a>
+              <a href="/AuctionDetails">Auction Details</a>
             </li>
             
             <NavLink to="/MyBid">
             <li>
-              <a href="/">My Bid</a>
+              <a href="/MyBid">My Bid</a>
             </li>
             </NavLink>
 
             <NavLink to="/Contact">
             <li>
-              <a href="/">Contact</a>
+              <a href="/Contact">Contact</a>
             </li>
             </NavLink>
 
           </ul>
-
-          <ul className="search-button-area">
+     
+     
+          {/* <ul className="search-button-area">
             <li>
               <form className="searchbar">
                 <input
@@ -60,12 +61,13 @@ export default function HeaderSecound() {
                 />
                 <input type="submit" className="searchbar-submit" value="GO" />
                 <span className="searchbar-icon">
-                  {/* <i className="feather-search" aria-hidden="true"></i> */}
-                  <FiSearch/>
+                  <i className="feather-search" aria-hidden="true"> <FiSearch/></i>
+                 
                 </span>
               </form>
             </li>
-          </ul>
+          </ul> */}
+          
         </div>
       </div>
     </div>
