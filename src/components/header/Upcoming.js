@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import car from "../../assets/images/auction/car/auction-1.jpg";
-import realstate from "../../assets/images/auction/realstate/auction-1.png";
-import popular from "../../assets/images/auction/popular/auction-2.jpg";
-import { FiClock } from "react-icons/fi";
-import axios from "axios";
+import React
+//  { useState, useEffect } 
+ from "react";
+// import car from "../../assets/images/auction/car/auction-1.jpg";
+// import realstate from "../../assets/images/auction/realstate/auction-1.png";
+// import popular from "../../assets/images/auction/popular/auction-2.jpg";
+// import { FiClock } from "react-icons/fi";
+// import axios from "axios";
 
 import CardImages from './CardImages';
 

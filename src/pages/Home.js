@@ -7,7 +7,7 @@ import Footer from '../components/header/Footer'
 import HeaderFrist from '../components/header/HeaderFrist'
 import HeaderSecound from '../components/header/HeaderSecound'
 import MainSilderSection from '../components/header/MainSilderSection'
-import NewAuction from '../components/header/NewAuction'
+// import NewAuction from '../components/header/NewAuction'
 import SectionBrowse from '../components/header/SectionBrowse'
 import Upcoming from '../components/header/Upcoming'
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
       <CurrentAuction/>
       <Upcoming/>
       <CallInSection/>
-      <NewAuction/>
+      {/* <NewAuction/> */}
       <ClientSection/>
       <Footer/>
     </div>

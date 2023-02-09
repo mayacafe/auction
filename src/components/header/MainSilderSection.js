@@ -41,7 +41,7 @@ export default function MainSilderSection() {
     <section className=" main-slider-section">
       <OwlCarousel items={1} margin={0} autoplay={true} className="main-slider owl-theme owl-carousel">
       {dataApiCall.map( (element)=>{
-       console.log(element.title)
+       console.log(element)
       return(
         <>
         <div className="slide-item" >

@@ -1,47 +1,58 @@
 import React, { useState, useEffect } from "react";
-import car from "../../assets/images/auction/car/auction-1.jpg";
+//import car from "../../assets/images/auction/car/auction-1.jpg";
 
+import car from "../assets/images/auction/car/auction-1.jpg"
 // import realstate from "../../assets/images/auction/realstate/auction-1.png";
 // import popular from "../../assets/images/auction/popular/auction-2.jpg";
-import banners1 from "../../assets/images/banners-01.png";
-import banners2 from "../../assets/images/banners-02.png";
+//import banners1 from "../../assets/images/banners-01.png";
+import banners1 from "../assets/images/banners-01.png"
+import banners2 from "../assets/images/banners-02.png"
+//import banners2 from "../../assets/images/banners-02.png";
 import { FiClock } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import HeaderFrist from "../components/header/HeaderFrist";
+import HeaderSecound from "../components/header/HeaderSecound";
 
-export default function CurrentAuction() {
-  const [currentData, setcurrentData] = useState([]);
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const deadline = "December, 31, 2022";
+export default function CurrentAucViewPage(){
+      const [currentData, setcurrentData] = useState([]);
+      const [days, setDays] = useState(0);
+      const [hours, setHours] = useState(0);
+      const [minutes, setMinutes] = useState(0);
+      const [seconds, setSeconds] = useState(0);
+      const deadline = "December, 31, 2022";
+    
+      const getTime = () => {
+        const time = Date.parse(deadline) - Date.now();
+    
+        setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+        setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+        setMinutes(Math.floor((time / 1000 / 60) % 60));
+        setSeconds(Math.floor((time / 1000) % 60));
+      };
 
-  const getTime = () => {
-    const time = Date.parse(deadline) - Date.now();
 
-    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
-    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-    setMinutes(Math.floor((time / 1000 / 60) % 60));
-    setSeconds(Math.floor((time / 1000) % 60));
-  };
-  useEffect(() => {
-    const interval = setInterval(() => getTime(deadline), 1000);
-    return () => clearInterval(interval);
-  }, []);
+      useEffect(() => {
+            const interval = setInterval(() => getTime(deadline), 1000);
+            return () => clearInterval(interval);
+          }, []);
+        
+          useEffect(() => {
+            axios
+              .post(`http://192.168.29.28:5000/listauction`)
+              .then((response) => {
+                setcurrentData(response.data);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }, []);
 
-  useEffect(() => {
-    axios
-      .post(`http://192.168.29.28:5000/listauction`)
-      .then((response) => {
-        setcurrentData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-  return (
-    <div className="browse-section ash-bg">
+       return(
+            <>
+            <HeaderFrist/>
+            <HeaderSecound/>
+            <div className="browse-section ash-bg">
       {/* <!--============= live Auction Section Starts Here =============--> */}
       <section className="live-auction-section padding-bottom pos-rel oh">
         {/* <!--  <div className="car-bg"><img src="assets/images/auction/car/car-bg.png" alt="car"></div> --> */}
@@ -51,19 +62,19 @@ export default function CurrentAuction() {
               {/* <!--  <div className="thumb">
                           <img src="assets/images/header-icons/car-1.png" alt="header-icons">
                       </div> --> */}
-              <div className="title-area">
+              {/* <div className="title-area">
                 <h2 className="title">Current Auction</h2>
                 <p>We offer affordable Vehicles</p>
-              </div>
+              </div> */}
             </div>
-            <NavLink to="/CurrentAucViewPage" >
+            {/* <NavLink to="/CurrentAucViewPage" >
             <a href="#0" className="normal-button">
               View All
             </a>
-            </NavLink>
+            </NavLink> */}
           </div>
           <div className="row justify-content-center mb-30-none">
-            {currentData.slice(0,3).map((data) => {
+            {currentData.map((data) => {
               return (
                 <>
                   <div className="col-sm-10 col-md-6 col-lg-4">
@@ -113,7 +124,7 @@ export default function CurrentAuction() {
       {/* <!--============= live Auction Section Ends Here =============--> */}
 
       {/* <section className="newbid-banner"> */}
-      <div className="container">
+      {/* <div className="container">
         <div className="row">
           <div className="col-md-6">
             <div className="banner-im-detail">
@@ -144,7 +155,8 @@ export default function CurrentAuction() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
-  );
+          </>
+       )
 }

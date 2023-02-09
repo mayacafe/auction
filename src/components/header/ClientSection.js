@@ -8,7 +8,6 @@ import photo3 from "../../assets/images/client/client03.png";
 import { BsStarFill } from "react-icons/bs";
 import axios from "axios";
 
-
 export default function ClientSection() {
   const [ratingdataApiCall, setratingdataApiCall] = useState([]);
 
@@ -21,7 +20,20 @@ export default function ClientSection() {
       .catch((error) => {
         console.log(error);
       });
-  }, ["http://localhost:3000/"]);
+  }, []);
+  const state = {
+    responsive: {
+      0: {
+        items: 1,
+      },
+      770: {
+        items: 2,
+      },
+      996: {
+        items: 3,
+      },
+    },
+  };
 
   return (
     <section className="client-section padding-top padding-bottom">
@@ -34,17 +46,27 @@ export default function ClientSection() {
         </div>
         <div className="m--15">
           {/* <div className="client-slider owl-theme owl-carousel"> */}
-          <OwlCarousel  items={3} margin={0} className="owl-theme client-slider  owl-carousel" loop nav>
+          <OwlCarousel
+            items={3}
+            margin={1}
+            className="owl-theme client-slider owl-carousel"
+            loop
+            nav
+            autoplay={true}
+            dots={false}
+            touchDrag={true}
+            lazyLoad={true}
+            responsive={state.responsive} // add this line
+            animateOut={"fadeOut"}
+            animateIn={"flipInX"}
+          >
             {ratingdataApiCall.map((data) => {
-             // console.log(data)
+              //console.log(data)
               return (
                 <>
-               
                   <div className="client-item">
                     <div className="client-content">
-                      <p>
-                        {data.rating_message}
-                      </p>
+                      <p>{data.rating_message}</p>
                     </div>
                     <div className="client-author">
                       <div className="thumb">
@@ -58,19 +80,34 @@ export default function ClientSection() {
                         </h6>
                         <div className="ratings">
                           <span>
-                          <i className="fas fa-star"> <BsStarFill /></i>
+                            <i className="fas fa-star">
+                              {" "}
+                              <BsStarFill />
+                            </i>
                           </span>
                           <span>
-                          <i className="fas fa-star"> <BsStarFill /></i>
+                            <i className="fas fa-star">
+                              {" "}
+                              <BsStarFill />
+                            </i>
                           </span>
                           <span>
-                          <i className="fas fa-star"> <BsStarFill /></i>
+                            <i className="fas fa-star">
+                              {" "}
+                              <BsStarFill />
+                            </i>
                           </span>
                           <span>
-                          <i className="fas fa-star"> <BsStarFill /></i>
+                            <i className="fas fa-star">
+                              {" "}
+                              <BsStarFill />
+                            </i>
                           </span>
                           <span>
-                          <i className="fas fa-star"> <BsStarFill /></i>
+                            <i className="fas fa-star">
+                              {" "}
+                              <BsStarFill />
+                            </i>
                           </span>
                         </div>
                       </div>

@@ -13,7 +13,7 @@ export default function HeaderSecound() {
                <img src={photo} alt="logo" /> 
             </a>
           </div>
-          <ul className="menu">
+          <ul className="menu nav-div-menu">
             <li>
               <a href="/">Home</a>
             </li>
@@ -46,9 +46,8 @@ export default function HeaderSecound() {
             </NavLink>
 
           </ul>
-     
-     
-          {/* <ul className="search-button-area">
+         <div>
+         <ul className="search-button-area">
             <li>
               <form className="searchbar">
                 <input
@@ -66,7 +65,8 @@ export default function HeaderSecound() {
                 </span>
               </form>
             </li>
-          </ul> */}
+          </ul>
+         </div>
           
         </div>
       </div>

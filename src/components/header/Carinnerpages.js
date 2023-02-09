@@ -38,25 +38,47 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { RiArrowLeftSLine } from "react-icons/ri";
 export default function carinnerpages() {
+    const state = {
+        responsive: {
+          0: {
+            items: 1,
+          },
+          450: {
+            items: 2,
+          },
+          768: {
+            items: 3,
+          },
+          991: {
+            items: 5,
+          },
+          1200: {
+            items: 6,
+          },
+        },
+      };
   return (
    <>
    <HeaderFrist/>
    <HeaderSecound/>
    <div class="hero-section style-2">
         <div class="container">
-            <ul class="breadcrumb">
-                <li>
-                    {/* <a href="index.html">Home</a>  */}
-                 <span>Home</span>   <span><HiOutlineArrowNarrowRight/></span>
-                </li>
-                <li>
-                    {/* <a href="#0">Pages</a> */}
-                    <span>Pages</span><span><HiOutlineArrowNarrowRight/></span>
-                </li>
-                <li>
-                    <span>Vehicles</span>
-                </li>
-            </ul>
+            <ul className="breadcrumb">
+            <li>
+              <span>Home</span>&nbsp;
+              <HiOutlineArrowNarrowRight />
+              &nbsp;
+            </li>
+            <li>
+              <span>page</span>
+              &nbsp;
+              <HiOutlineArrowNarrowRight />
+              &nbsp;
+            </li>
+            <li>
+              <span>Vehicles</span>
+            </li>
+          </ul>
         </div>
         <div class="bg_img hero-bg bottom_center" data-background="assets/images/banner/hero-bg.png"></div>
     </div>
@@ -67,7 +89,7 @@ export default function carinnerpages() {
         <div class="container">
             <div class="product-details-slider-top-wrapper">
                 {/* <div class="product-details-slider owl-theme owl-carousel" id="sync1"> */}
-                <OwlCarousel items={1} className="  owl-theme" loop nav margin={0}>
+                <OwlCarousel items={1} className="product-details-slider owl-theme owl-carousel" loop nav margin={0}>
                     <div class="slide-top-item">
                         <div class="slide-inner">
                             <img src={photo1} alt="product"/>
@@ -104,7 +126,18 @@ export default function carinnerpages() {
             </div>
             <div class="product-details-slider-wrapper">
                 {/* <div class="product-bottom-slider owl-theme owl-carousel" id="sync2"> */}
-                <OwlCarousel items={6} className=" product-bottom-slider owl-carousel owl-theme"  margin={0}>
+                <OwlCarousel 
+                items={6}
+                 className=" product-bottom-slider owl-carousel owl-theme" 
+                  margin={1}
+                  autoplay={true}
+                  dots={false}
+                  touchDrag={true}
+                  lazyLoad={true}
+                  responsive={state.responsive} // add this line
+                  animateOut={"fadeOut"}
+                  animateIn={"flipInX"}
+                  >
 
                     <div class="slide-bottom-item">
                         <div class="slide-inner">
@@ -146,7 +179,9 @@ export default function carinnerpages() {
                 <RiArrowRightSLine/>
                 </span>
             </div>
-            <div class="row mt-40-60-80">
+
+
+            <div class="row mt-40-60-80  mt-top-div" >
                 <div class="col-lg-8">
                     <div class="product-details-content">
                         <div class="product-details-header">
@@ -186,16 +221,16 @@ export default function carinnerpages() {
                                 <span>Share to:</span>
                                 <ul>
                                     <li>
-                                        <a href="#0"><GrFacebookOption/></a>
+                                        <a href="#0"><i class="fab fa-facebook-f"><GrFacebookOption/></i></a>
                                     </li>
                                     <li>
-                                        <a href="#0"><AiOutlineTwitter/></a>
+                                        <a href="#0"><i class="fab fa-twitter"><AiOutlineTwitter/></i></a>
                                     </li>
                                     <li>
-                                        <a href="#0"><RiLinkedinFill/></a>
+                                        <a href="#0"><i class="fab fa-linkedin-in"><RiLinkedinFill/></i></a>
                                     </li>
                                     <li>
-                                        <a href="#0"><AiOutlineInstagram/></a>
+                                        <a href="#0"><i class="fab fa-instagram"><AiOutlineInstagram/></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -212,7 +247,7 @@ export default function carinnerpages() {
                             <div class="side-counter-area">
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                      <FiAward/>
+                                    <i class="feather-award"> <FiAward/></i>   
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">61</span></h3>
@@ -221,7 +256,7 @@ export default function carinnerpages() {
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                       <FiEye/>
+                                    <i class="feather-eye"><FiEye/></i> 
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">203</span></h3>
@@ -230,7 +265,7 @@ export default function carinnerpages() {
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                       <BsGift/>
+                                    <i class="feather-gift"><BsGift/></i>    
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">82</span></h3>

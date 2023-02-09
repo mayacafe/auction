@@ -8,13 +8,14 @@ import About from '../src/pages/About';
 import BrowseProduct from '../src/pages/BrowseProduct';
 import MyBid from '../src/pages/MyBid';
 import Contact from '../src/pages/Contact';
+import CurrentAucViewPage from './innerpages/CurrentAucViewPage';
 
 import {
   createBrowserRouter,
   RouterProvider,
   // Route,
   // Link,
-  Navigate
+  //Navigate
 } from "react-router-dom";
 
 
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
   {path: "BrowseProduct", element:<BrowseProduct/> },
   {path: "MyBid", element:<MyBid/>},
   {path: "Contact", element:<Contact/>},
+  {path: "CurrentAucViewPage", element:<CurrentAucViewPage/>},
 ]);
 
 const MainApp = () => {

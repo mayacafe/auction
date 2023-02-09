@@ -8,6 +8,9 @@ html {
     font-size: 1em;
     line-height: 1.4;
 }
+.timer .timer-div{
+    font-size: 16px;
+}
 .select-bar{
     font-size: 14px;
     padding: 2px 4px;
@@ -36,9 +39,12 @@ html {
     visibility: hidden;
     display: none;
 }
-ol, ul {
-    padding-left: 0px !important;
+.mt-top-div{
+    margin-top: 100px !important;
 }
+/* ol, ul {
+    padding-left: 0px !important;
+} */
 .icon-div{
     margin-right: 30px;
 }
@@ -1877,6 +1883,7 @@ footer.bg_img.padding-top.oh {
 /*Header Sectionn Starts Here*/
 .header-top-wrapper {
     justify-content: space-between;
+    margin-bottom: -22px;
 }
 
 .header-top-wrapper .customer-support, .header-top-wrapper .cart-button-area {
@@ -1984,6 +1991,7 @@ header {
     width: 100%;
     z-index: 99;
     background: #fff;
+    
 }
 
 .header-wrapper {
@@ -2042,6 +2050,7 @@ header {
     color: #ffffff;
 }
 ul.search-button-area {
+    width: 20px;
     /* display: flex; */
     /* justify-content: space-around; */
     float: right;

@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-
+import React, { useState, useEffect } from "react";
 import photo1 from "../../assets/images/auction/real-estate.png";
 // import photo2 from "../../assets/images/auction/car.png";
 // import photo3 from "../../assets/images/auction/double-bed.png";
@@ -9,25 +8,41 @@ import photo1 from "../../assets/images/auction/real-estate.png";
 import axios from "axios";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-// import { FiClock } from "react-icons/fi";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";       
-
-
+import "owl.carousel/dist/assets/owl.theme.default.css";
 export default function SectionBrowse() {
+  const [catergoryData, setcatergoryData] = useState([]);
+  useEffect(() => {
+    axios
+      .post(`http://192.168.29.28:5000/listcatergory`)
+      .then((response) => {
+        setcatergoryData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-  const [catergoryData, setcatergoryData] = useState([])
-  
- useEffect(()=>{
-    axios.post(`http://192.168.29.28:5000/listcatergory`)
-    .then((response) => {
-      setcatergoryData(response.data);
-    })
-    .catch(error =>{
-          console.log(error)
-        })
-  },[])
+  const state = {
+    responsive: {
+      0: {
+        items: 1,
+      },
+      450: {
+        items: 2,
+      },
+      768: {
+        items: 3,
+      },
+      991: {
+        items: 5,
+      },
+      1200: {
+        items: 6,
+      },
+    },
+  };
 
   return (
     <div className="browse-section ash-bg">
@@ -40,58 +55,43 @@ export default function SectionBrowse() {
             </div>
             <div className="slider-nav">
               <a href="#0" className="bro-prev">
-                {/* <i className="flaticon-left-arrow"></i> */}
-                <HiOutlineArrowNarrowLeft />
+                <i className="flaticon-left-arrow">
+                  <HiOutlineArrowNarrowLeft />
+                </i>
               </a>
               <a href="#0" className="bro-next active">
-                {/* <i className="flaticon-right-arrow"></i> */}
-                <HiOutlineArrowNarrowRight />
+                <i className="flaticon-right-arrow">
+                  <HiOutlineArrowNarrowRight />
+                </i>
               </a>
             </div>
           </div>
           <div className="m--15">
-            <OwlCarousel items={6} className=" browse-slider owl-carousel owl-theme " loop nav margin={0}>
-            {catergoryData.map((element) => {
-              console.log(element.name)
-             return(
-              <>
-             
-              <a href="#0" className="browse-item">
-              <img src={photo1} alt="auction" />
-              <span className="info">{element.name}</span>
-            </a>
-            </>
-             )
-            })}
-              {/* <a href="#0" className="browse-item">
-                <img src={photo1} alt="auction" />
-                <span className="info">Properties</span>
-              </a>
-
-              <a href="#0" className="browse-item">
-                <img src={photo2} alt="auction" />
-                <span className="info">Vehicles</span>
-              </a>
-
-              <a href="#0" className="browse-item">
-                <img src={photo3} alt="auction" />
-                <span className="info">Furniture</span>
-              </a>
-
-              <a href="#0" className="browse-item">
-                <img src={photo4} alt="auction" />
-                <span className="info">Electronics</span>
-              </a>
-
-              <a href="#0" className="browse-item">
-                <img src={photo5} alt="auction" />
-                <span className="info">Appliances</span>
-              </a>
-
-              <a href="#0" className="browse-item">
-                <img src={photo6} alt="auction" />
-                <span className="info">Electrical</span>
-              </a> */}
+            <OwlCarousel
+              items={6}
+              className=" browse-slider owl-carousel owl-theme "
+              loop
+              nav
+              autoplay={true}
+              dots={false}
+              touchDrag={true}
+              lazyLoad={true}
+              responsive={state.responsive} // add this line
+              animateOut={"fadeOut"}
+              animateIn={"flipInX"}
+              margin={1}
+            >
+              {catergoryData.map((element) => {
+             // console.log(element)
+                return (
+                  <>
+                    <a href="#0" className="browse-item">
+                      <img src={photo1} alt="auction" />
+                      <span className="info">{element.name}</span>
+                    </a>
+                  </>
+                );
+              })}
             </OwlCarousel>
           </div>
         </div>
